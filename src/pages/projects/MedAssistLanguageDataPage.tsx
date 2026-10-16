@@ -1,12 +1,12 @@
-import React from 'react'
+import { useLanguage } from '../../i18n/LanguageProvider'
 
-const MedAssistLanguageDataPage: React.FC = () => {
+export default function MedAssistLanguageDataPage() {
+  const { t } = useLanguage()
+
   return (
-    <div>
-      <h1>MedAssist Language Data Project</h1>
-      <p>Details about the MedAssist Language Data project.</p>
-    </div>
+    <section>
+      <h1>{t.projectPlaceholders.medAssistLanguageData}</h1>
+      <p>{t.projectPlaceholders.details}</p>
+    </section>
   )
 }
-
-export default MedAssistLanguageDataPage

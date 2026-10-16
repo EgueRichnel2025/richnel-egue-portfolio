@@ -1,19 +1,22 @@
+import { useLanguage } from '../i18n/LanguageProvider'
 import { useTheme, type ThemePreference } from './ThemeProvider'
 
-const options: { value: ThemePreference; label: string }[] = [
-  { value: 'system', label: 'Système' },
-  { value: 'light', label: 'Clair' },
-  { value: 'dark', label: 'Sombre' },
-]
-
 export default function ThemeSwitcher() {
-  const { preference, setPreference } = useTheme()
+  const { preference, resolvedTheme, setPreference } = useTheme()
+  const { t } = useLanguage()
+
+  const options: { value: ThemePreference; label: string }[] = [
+    { value: 'system', label: t.theme.system },
+    { value: 'light', label: t.theme.light },
+    { value: 'dark', label: t.theme.dark },
+  ]
 
   return (
     <div
       className="theme-switcher"
       role="group"
-      aria-label="Préférence du thème"
+      aria-label={t.theme.label}
+      data-resolved-theme={resolvedTheme}
     >
       {options.map(({ value, label }) => (
         <button
@@ -21,7 +24,7 @@ export default function ThemeSwitcher() {
           type="button"
           className="theme-switcher__option"
           aria-pressed={preference === value}
-          title={`Utiliser le thème ${label.toLowerCase()}`}
+          title={label}
           onClick={() => setPreference(value)}
         >
           {label}

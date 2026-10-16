@@ -1,12 +1,12 @@
-import React from 'react'
+import { useLanguage } from '../i18n/LanguageProvider'
 
-const NotFoundPage: React.FC = () => {
+export default function NotFoundPage() {
+  const { t } = useLanguage()
+
   return (
-    <div>
-      <h1>404 - Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
-    </div>
+    <section>
+      <h1>{t.notFound.title}</h1>
+      <p>{t.notFound.description}</p>
+    </section>
   )
 }
-
-export default NotFoundPage

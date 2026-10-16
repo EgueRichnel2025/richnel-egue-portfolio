@@ -1,96 +1,124 @@
-import { test, expect } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { beforeEach, expect, test } from 'vitest'
+import { fireEvent, render, screen } from '@testing-library/react'
 import App from './App'
 
-test('renders navbar links', () => {
-  render(<App />)
-  const homeLink = screen.getByRole('link', { name: /^home$/i })
-  expect(homeLink).toBeTruthy()
-  const medassistLink = screen.getByRole('link', { name: /^medassist$/i })
-  expect(medassistLink).toBeTruthy()
-  const meloLink = screen.getByRole('link', { name: /^melo$/i })
-  expect(meloLink).toBeTruthy()
-  const medassistLanguageDataLink = screen.getByRole('link', {
-    name: /^medassist language data$/i,
-  })
-  expect(medassistLanguageDataLink).toBeTruthy()
-})
+function renderAtPath(path: string) {
+  window.history.replaceState({}, '', path)
+  return render(<App />)
+}
 
-test('renders home page content by default', () => {
-  render(<App />)
-  const heading = screen.getByRole('heading', { name: /home page/i })
-  expect(heading).toBeTruthy()
-  const welcomeText = screen.getByText(/welcome to richnel egue's portfolio/i)
-  expect(welcomeText).toBeTruthy()
-})
-
-test('navigates to medassist page and renders its content', async () => {
-  render(<App />)
-  const medassistLink = screen.getByRole('link', { name: /^medassist$/i })
-  await fireEvent.click(medassistLink)
-  const heading = screen.getByRole('heading', { name: /medassist project/i })
-  expect(heading).toBeTruthy()
-  const detailsText = screen.getByText(/details about the medassist project/i)
-  expect(detailsText).toBeTruthy()
-})
-
-test('navigates to melo page and renders its content', async () => {
-  render(<App />)
-  const meloLink = screen.getByRole('link', { name: /^melo$/i })
-  await fireEvent.click(meloLink)
-  const heading = screen.getByRole('heading', { name: /melo project/i })
-  expect(heading).toBeTruthy()
-  const detailsText = screen.getByText(/details about the melo project/i)
-  expect(detailsText).toBeTruthy()
-})
-
-test('navigates to medassist language data page and renders its content', async () => {
-  render(<App />)
-  const medassistLanguageDataLink = screen.getByRole('link', {
-    name: /^medassist language data$/i,
-  })
-  await fireEvent.click(medassistLanguageDataLink)
-  const heading = screen.getByRole('heading', {
-    name: /medassist language data project/i,
-  })
-  expect(heading).toBeTruthy()
-  const detailsText = screen.getByText(
-    /details about the medassist language data project/i
-  )
-  expect(detailsText).toBeTruthy()
-})
-
-test('renders the not found page for an unknown URL', () => {
-  window.history.replaceState({}, '', '/route-inconnue')
-
-  render(<App />)
-
-  expect(
-    screen.getByRole('heading', { name: /404 - page not found/i })
-  ).toBeTruthy()
-
-  expect(
-    screen.getByText(/the page you are looking for does not exist/i)
-  ).toBeTruthy()
-
+beforeEach(() => {
+  window.localStorage.clear()
   window.history.replaceState({}, '', '/')
 })
 
-test('supports light and dark theme preferences', () => {
-  window.localStorage.removeItem('richnel-theme')
+test('renders the main portfolio navigation in French', () => {
+  render(<App />)
 
+  expect(screen.getByRole('link', { name: /^à propos$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^compétences$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^solutions$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^projets$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^parcours$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^certifications$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^ai lab$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^contact$/i })).toBeTruthy()
+
+  expect(screen.queryByRole('link', { name: /^medassist$/i })).toBeNull()
+  expect(screen.queryByRole('link', { name: /^melo$/i })).toBeNull()
+
+  expect(document.documentElement.lang).toBe('fr')
+})
+
+test('renders the French home page by default', () => {
+  render(<App />)
+
+  expect(
+    screen.getByRole('heading', { name: /portfolio de richnel egue/i })
+  ).toBeTruthy()
+
+  expect(screen.getByText(/bienvenue sur mon portfolio/i)).toBeTruthy()
+})
+
+test('renders the MedAssist project route', () => {
+  renderAtPath('/projects/medassist')
+
+  expect(
+    screen.getByRole('heading', { name: /projet medassist/i })
+  ).toBeTruthy()
+
+  expect(screen.getByText(/détails de ce projet/i)).toBeTruthy()
+})
+
+test('renders the Melo project route', () => {
+  renderAtPath('/projects/melo')
+
+  expect(screen.getByRole('heading', { name: /projet melo/i })).toBeTruthy()
+
+  expect(screen.getByText(/détails de ce projet/i)).toBeTruthy()
+})
+
+test('renders the MedAssist Language Data project route', () => {
+  renderAtPath('/projects/medassist-language-data')
+
+  expect(
+    screen.getByRole('heading', {
+      name: /projet medassist language data/i,
+    })
+  ).toBeTruthy()
+
+  expect(screen.getByText(/détails de ce projet/i)).toBeTruthy()
+})
+
+test('renders the not found page for an unknown URL', () => {
+  renderAtPath('/route-inconnue')
+
+  expect(
+    screen.getByRole('heading', { name: /404.*page introuvable/i })
+  ).toBeTruthy()
+
+  expect(screen.getByText(/page que vous recherchez/i)).toBeTruthy()
+})
+
+test('supports light and dark theme preferences', () => {
   render(<App />)
 
   expect(document.documentElement.dataset.theme).toBe('light')
-  expect(screen.getByRole('button', { name: /système/i })).toBeTruthy()
 
-  fireEvent.click(screen.getByRole('button', { name: /sombre/i }))
+  fireEvent.click(screen.getByRole('button', { name: /^sombre$/i }))
 
   expect(document.documentElement.dataset.theme).toBe('dark')
   expect(window.localStorage.getItem('richnel-theme')).toBe('dark')
 
-  fireEvent.click(screen.getByRole('button', { name: /clair/i }))
+  fireEvent.click(screen.getByRole('button', { name: /^clair$/i }))
 
   expect(document.documentElement.dataset.theme).toBe('light')
   expect(window.localStorage.getItem('richnel-theme')).toBe('light')
+})
+
+test('switches between French and English', () => {
+  render(<App />)
+
+  expect(
+    screen.getByRole('heading', { name: /portfolio de richnel egue/i })
+  ).toBeTruthy()
+
+  fireEvent.click(screen.getByRole('button', { name: 'Passer en anglais' }))
+
+  expect(document.documentElement.lang).toBe('en')
+  expect(window.localStorage.getItem('richnel-language')).toBe('en')
+
+  expect(
+    screen.getByRole('heading', { name: /richnel egue portfolio/i })
+  ).toBeTruthy()
+
+  expect(screen.getByRole('link', { name: /^about$/i })).toBeTruthy()
+  expect(screen.getByRole('link', { name: /^projects$/i })).toBeTruthy()
+
+  fireEvent.click(screen.getByRole('button', { name: 'Switch to French' }))
+
+  expect(document.documentElement.lang).toBe('fr')
+  expect(window.localStorage.getItem('richnel-language')).toBe('fr')
+
+  expect(screen.getByRole('link', { name: /^à propos$/i })).toBeTruthy()
 })

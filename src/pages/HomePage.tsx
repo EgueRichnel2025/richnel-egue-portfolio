@@ -1,12 +1,12 @@
-import React from 'react'
+import { useLanguage } from '../i18n/LanguageProvider'
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
+  const { t } = useLanguage()
+
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to Richnel EGUE's portfolio.</p>
-    </div>
+    <section>
+      <h1>{t.home.title}</h1>
+      <p>{t.home.welcome}</p>
+    </section>
   )
 }
-
-export default HomePage

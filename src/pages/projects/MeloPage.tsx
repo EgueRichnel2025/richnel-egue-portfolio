@@ -1,12 +1,12 @@
-import React from 'react'
+import { useLanguage } from '../../i18n/LanguageProvider'
 
-const MeloPage: React.FC = () => {
+export default function MeloPage() {
+  const { t } = useLanguage()
+
   return (
-    <div>
-      <h1>Melo Project</h1>
-      <p>Details about the Melo project.</p>
-    </div>
+    <section>
+      <h1>{t.projectPlaceholders.melo}</h1>
+      <p>{t.projectPlaceholders.details}</p>
+    </section>
   )
 }
-
-export default MeloPage
