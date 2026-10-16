@@ -178,3 +178,29 @@ test('renders the skills section in French and English', () => {
   expect(screen.getByText('Linear algebra')).toBeTruthy()
   expect(screen.getByText('Computer Vision')).toBeTruthy()
 })
+
+test('renders the solutions section in French and English', () => {
+  render(<App />)
+
+  expect(
+    screen.getByRole('heading', {
+      name: /la technologie au service de problèmes concrets/i,
+    })
+  ).toBeTruthy()
+
+  expect(screen.getByText('Santé')).toBeTruthy()
+  expect(screen.getByText('Assurance')).toBeTruthy()
+  expect(screen.getByText('Agriculture')).toBeTruthy()
+  expect(screen.getByText('Industrie')).toBeTruthy()
+
+  fireEvent.click(screen.getByRole('button', { name: 'Passer en anglais' }))
+
+  expect(
+    screen.getByRole('heading', {
+      name: /technology applied to real-world problems/i,
+    })
+  ).toBeTruthy()
+
+  expect(screen.getByText('Healthcare')).toBeTruthy()
+  expect(screen.getByText('Insurance')).toBeTruthy()
+})

@@ -96,6 +96,59 @@ const fr = {
     },
   },
 
+  solutions: {
+    eyebrow: 'APPLICATIONS POSSIBLES',
+    title: 'La technologie au service de problèmes concrets.',
+    description:
+      'L’intelligence artificielle et le développement logiciel peuvent apporter des réponses utiles à de nombreux secteurs. Voici quelques pistes que j’aimerais explorer et contribuer à construire.',
+    scopeNote:
+      'Ces exemples illustrent des applications possibles, et non une liste de prestations ou de résultats déjà réalisés.',
+    sectors: {
+      healthcare: {
+        title: 'Santé',
+        description:
+          'Explorer comment les données et l’IA peuvent soutenir l’analyse et faciliter l’accès à l’information de santé.',
+        points: [
+          'Analyse de données médicales',
+          'Classification et aide à l’orientation',
+          'Outils de santé multilingues',
+        ],
+      },
+      insurance: {
+        title: 'Assurance',
+        description:
+          'Étudier comment l’analyse de données peut aider à traiter les informations et repérer des situations inhabituelles.',
+        points: [
+          'Analyse et classification de sinistres',
+          'Détection d’anomalies',
+          'Traitement intelligent de documents',
+        ],
+      },
+      agriculture: {
+        title: 'Agriculture',
+        description:
+          'Explorer la vision par ordinateur et l’analyse prédictive pour accompagner le suivi des cultures.',
+        points: [
+          'Détection de maladies des cultures',
+          'Analyse prédictive',
+          'Surveillance intelligente',
+        ],
+      },
+      industry: {
+        title: 'Industrie',
+        description:
+          'Étudier comment les données des équipements peuvent aider à mieux comprendre les processus et anticiper certains incidents.',
+        points: [
+          'Maintenance prédictive',
+          'Analyse de données de capteurs',
+          'Détection d’anomalies',
+        ],
+      },
+    },
+    contactPrompt: 'Vous avez un problème à explorer ?',
+    contactCta: 'Parlons de votre idée',
+  },
+
   about: {
     eyebrow: 'À PROPOS',
     title: 'Relier les mathématiques aux solutions concrètes.',

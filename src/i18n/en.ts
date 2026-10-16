@@ -96,6 +96,59 @@ const en = {
     },
   },
 
+  solutions: {
+    eyebrow: 'POTENTIAL APPLICATIONS',
+    title: 'Technology applied to real-world problems.',
+    description:
+      'Artificial intelligence and software development can bring useful ideas to many sectors. Here are some applications I would like to explore and help build.',
+    scopeNote:
+      'These examples illustrate potential applications, not a list of services or results already delivered.',
+    sectors: {
+      healthcare: {
+        title: 'Healthcare',
+        description:
+          'Explore how data and AI could support analysis and improve access to health information.',
+        points: [
+          'Medical data analysis',
+          'Classification and decision support',
+          'Multilingual health tools',
+        ],
+      },
+      insurance: {
+        title: 'Insurance',
+        description:
+          'Explore how data analysis could help process information and flag unusual situations.',
+        points: [
+          'Claims analysis and classification',
+          'Anomaly detection',
+          'Intelligent document processing',
+        ],
+      },
+      agriculture: {
+        title: 'Agriculture',
+        description:
+          'Explore computer vision and predictive analysis to support crop monitoring.',
+        points: [
+          'Crop disease detection',
+          'Predictive analysis',
+          'Intelligent monitoring',
+        ],
+      },
+      industry: {
+        title: 'Industry',
+        description:
+          'Explore how equipment data could help understand processes and anticipate some issues.',
+        points: [
+          'Predictive maintenance',
+          'Sensor data analysis',
+          'Anomaly detection',
+        ],
+      },
+    },
+    contactPrompt: 'Have a problem worth exploring?',
+    contactCta: 'Let’s discuss your idea',
+  },
+
   about: {
     eyebrow: 'ABOUT',
     title: 'Connecting mathematics to practical solutions.',
