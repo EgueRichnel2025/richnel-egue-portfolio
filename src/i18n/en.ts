@@ -45,6 +45,57 @@ const en = {
     visualFootnote: 'Understand → Model → Build',
   },
 
+  skills: {
+    eyebrow: 'SKILLS & EXPLORATION',
+    title: 'Skills across connected disciplines.',
+    description:
+      'I connect mathematics, artificial intelligence, and software development. Here are the technologies I use and the areas I explore, without artificial proficiency rankings.',
+    groups: {
+      mathematics: {
+        title: 'Mathematics & modeling',
+        items: [
+          'Linear algebra',
+          'Probability & statistics',
+          'Mathematical modeling',
+          'Optimization',
+        ],
+      },
+      ai: {
+        title: 'AI & data',
+        items: [
+          'Python',
+          'Machine Learning',
+          'Deep Learning',
+          'Computer Vision',
+          'Data analysis',
+          'scikit-learn',
+        ],
+      },
+      software: {
+        title: 'Web & mobile development',
+        items: [
+          'React',
+          'TypeScript',
+          'Flutter',
+          'Dart',
+          'FastAPI',
+          'REST APIs',
+          'Git',
+        ],
+      },
+      robotics: {
+        title: 'Robotics & embedded systems',
+        items: [
+          'Arduino',
+          'MicroPython',
+          'Sensors',
+          'Embedded systems',
+          'Robotics',
+        ],
+      },
+    },
+  },
+
   about: {
     eyebrow: 'ABOUT',
     title: 'Connecting mathematics to practical solutions.',

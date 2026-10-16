@@ -45,6 +45,57 @@ const fr = {
     visualFootnote: 'Comprendre → Modéliser → Construire',
   },
 
+  skills: {
+    eyebrow: 'COMPÉTENCES & EXPLORATION',
+    title: 'Des compétences à la croisée de plusieurs domaines.',
+    description:
+      'Je relie les mathématiques, l’intelligence artificielle et le développement logiciel. Voici les technologies que j’utilise et les domaines que j’explore, sans classement artificiel.',
+    groups: {
+      mathematics: {
+        title: 'Mathématiques & modélisation',
+        items: [
+          'Algèbre linéaire',
+          'Probabilités & statistiques',
+          'Modélisation mathématique',
+          'Optimisation',
+        ],
+      },
+      ai: {
+        title: 'IA & données',
+        items: [
+          'Python',
+          'Machine Learning',
+          'Deep Learning',
+          'Vision par ordinateur',
+          'Analyse de données',
+          'scikit-learn',
+        ],
+      },
+      software: {
+        title: 'Développement web & mobile',
+        items: [
+          'React',
+          'TypeScript',
+          'Flutter',
+          'Dart',
+          'FastAPI',
+          'API REST',
+          'Git',
+        ],
+      },
+      robotics: {
+        title: 'Robotique & systèmes embarqués',
+        items: [
+          'Arduino',
+          'MicroPython',
+          'Capteurs',
+          'Systèmes embarqués',
+          'Robotique',
+        ],
+      },
+    },
+  },
+
   about: {
     eyebrow: 'À PROPOS',
     title: 'Relier les mathématiques aux solutions concrètes.',

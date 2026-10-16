@@ -154,3 +154,27 @@ test('renders the about section in French and English', () => {
     screen.getByText(/mathematics & modeling at ensgmm abomey/i)
   ).toBeTruthy()
 })
+
+test('renders the skills section in French and English', () => {
+  render(<App />)
+
+  expect(
+    screen.getByRole('heading', {
+      name: /des compétences à la croisée de plusieurs domaines/i,
+    })
+  ).toBeTruthy()
+
+  expect(screen.getByText('Algèbre linéaire')).toBeTruthy()
+  expect(screen.getByText('Vision par ordinateur')).toBeTruthy()
+
+  fireEvent.click(screen.getByRole('button', { name: 'Passer en anglais' }))
+
+  expect(
+    screen.getByRole('heading', {
+      name: /skills across connected disciplines/i,
+    })
+  ).toBeTruthy()
+
+  expect(screen.getByText('Linear algebra')).toBeTruthy()
+  expect(screen.getByText('Computer Vision')).toBeTruthy()
+})

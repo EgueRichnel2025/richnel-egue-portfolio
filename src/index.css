@@ -1030,3 +1030,145 @@ select:focus-visible {
     margin-top: 1.6rem;
   }
 }
+
+/* Skills section */
+
+.skills-section {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--color-border);
+
+  scroll-margin-top: 2rem;
+}
+
+.skills-section__header {
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.skills-section__eyebrow {
+  margin: 0 0 1rem;
+
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+:root[data-theme='dark'] .skills-section__eyebrow {
+  color: var(--color-accent);
+}
+
+.skills-section__title {
+  margin: 0;
+
+  color: var(--color-text);
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  font-weight: 720;
+  line-height: 1.13;
+  letter-spacing: -0.055em;
+}
+
+.skills-section__description {
+  max-width: 650px;
+  margin: 1rem 0 0;
+
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.skills-card {
+  min-width: 0;
+  padding: clamp(1.15rem, 2.5vw, 1.75rem);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  background: var(--color-surface);
+}
+
+.skills-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.skills-card__index {
+  flex: 0 0 auto;
+  padding-top: 0.15rem;
+
+  color: var(--color-accent-strong);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+:root[data-theme='dark'] .skills-card__index {
+  color: var(--color-accent);
+}
+
+.skills-card__title {
+  margin: 0;
+
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+.skills-card__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-card__item {
+  max-width: 100%;
+  padding: 0.4rem 0.65rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background: var(--color-background);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .skills-section__header {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+  }
+
+  .skills-section__title {
+    font-size: clamp(1.85rem, 8.5vw, 2.5rem);
+  }
+
+  .skills-section__description {
+    font-size: 0.92rem;
+  }
+}
