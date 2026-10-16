@@ -45,6 +45,25 @@ const en = {
     visualFootnote: 'Understand → Model → Build',
   },
 
+  about: {
+    eyebrow: 'ABOUT',
+    title: 'Connecting mathematics to practical solutions.',
+    introduction:
+      'I study Mathematics & Modeling at ENSGMM Abomey. This background shapes how I approach problems: understanding phenomena, reasoning carefully, and turning ideas into prototypes.',
+    description:
+      'Alongside my studies, I build full-stack web and mobile applications and explore machine learning, computer vision, and robotics through projects and continued learning.',
+    purposeLabel: 'What I want to contribute to',
+    purpose:
+      'In the long term, I want to contribute to useful solutions that combine artificial intelligence and robotics, particularly to address practical healthcare needs in Africa.',
+    focusLabel: 'Areas I explore',
+    focus: {
+      mathematics: 'Mathematics & modeling',
+      ai: 'AI & machine learning',
+      software: 'Web & mobile development',
+      robotics: 'Robotics & embedded systems',
+    },
+  },
+
   notFound: {
     title: '404 — Page Not Found',
     description: 'The page you are looking for does not exist.',

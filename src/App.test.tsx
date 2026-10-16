@@ -130,3 +130,27 @@ test('switches between French and English', () => {
 
   expect(screen.getByRole('link', { name: /^à propos$/i })).toBeTruthy()
 })
+
+test('renders the about section in French and English', () => {
+  render(<App />)
+
+  expect(
+    screen.getByRole('heading', {
+      name: /relier les mathématiques aux solutions concrètes/i,
+    })
+  ).toBeTruthy()
+
+  expect(screen.getByText(/ensgmm d’abomey/i)).toBeTruthy()
+
+  fireEvent.click(screen.getByRole('button', { name: 'Passer en anglais' }))
+
+  expect(
+    screen.getByRole('heading', {
+      name: /connecting mathematics to practical solutions/i,
+    })
+  ).toBeTruthy()
+
+  expect(
+    screen.getByText(/mathematics & modeling at ensgmm abomey/i)
+  ).toBeTruthy()
+})

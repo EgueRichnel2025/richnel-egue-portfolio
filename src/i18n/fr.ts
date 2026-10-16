@@ -45,6 +45,25 @@ const fr = {
     visualFootnote: 'Comprendre → Modéliser → Construire',
   },
 
+  about: {
+    eyebrow: 'À PROPOS',
+    title: 'Relier les mathématiques aux solutions concrètes.',
+    introduction:
+      'J’étudie les Mathématiques & Modélisation à l’ENSGMM d’Abomey. Cette formation nourrit ma façon d’aborder les problèmes : comprendre les phénomènes, raisonner avec rigueur et transformer des idées en prototypes.',
+    description:
+      'En parallèle, je développe des applications web et mobile full-stack et j’explore le machine learning, la vision par ordinateur et la robotique à travers mes projets et mes apprentissages.',
+    purposeLabel: 'Ce vers quoi je veux contribuer',
+    purpose:
+      'À terme, je souhaite participer à la création de solutions utiles qui associent intelligence artificielle et robotique, notamment pour répondre à des besoins concrets dans le domaine de la santé en Afrique.',
+    focusLabel: 'Mes axes d’exploration',
+    focus: {
+      mathematics: 'Mathématiques & modélisation',
+      ai: 'IA & machine learning',
+      software: 'Développement web & mobile',
+      robotics: 'Robotique & systèmes embarqués',
+    },
+  },
+
   notFound: {
     title: '404 — Page introuvable',
     description: "La page que vous recherchez n'existe pas.",
