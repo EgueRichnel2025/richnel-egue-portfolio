@@ -27,9 +27,22 @@ const fr = {
     downloadCv: 'Télécharger le CV',
   },
 
-  home: {
-    title: 'Portfolio de Richnel EGUE',
-    welcome: 'Bienvenue sur mon portfolio.',
+  hero: {
+    eyebrow: 'Futur ingénieur en IA · Développeur web & mobile full-stack',
+    titlePrefix: 'Je construis à la croisée des',
+    titleHighlight: 'mathématiques, de l’IA et du logiciel.',
+    description:
+      'Étudiant en Mathématiques & Modélisation, je développe des applications web et mobile et j’explore le machine learning et la robotique à travers des projets concrets.',
+    primaryCta: 'Explorer les projets',
+    secondaryCta: 'Me contacter',
+    note: 'Apprendre, expérimenter et construire.',
+    visualAriaLabel: 'Aperçu de mon approche de conception',
+    visualKicker: 'UNE APPROCHE TRANSVERSALE',
+    visualTitle: 'Des mathématiques au prototype',
+    stepMath: 'Modéliser le problème',
+    stepAI: 'Expérimenter avec l’IA',
+    stepBuild: 'Construire une solution',
+    visualFootnote: 'Comprendre → Modéliser → Construire',
   },
 
   notFound: {

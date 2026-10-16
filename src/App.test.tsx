@@ -30,14 +30,22 @@ test('renders the main portfolio navigation in French', () => {
   expect(document.documentElement.lang).toBe('fr')
 })
 
-test('renders the French home page by default', () => {
+test('renders the French hero by default', () => {
   render(<App />)
 
   expect(
-    screen.getByRole('heading', { name: /portfolio de richnel egue/i })
+    screen.getByRole('heading', {
+      name: /je construis à la croisée des/i,
+    })
   ).toBeTruthy()
 
-  expect(screen.getByText(/bienvenue sur mon portfolio/i)).toBeTruthy()
+  expect(
+    screen.getByText(/étudiant en mathématiques & modélisation/i)
+  ).toBeTruthy()
+
+  expect(
+    screen.getByRole('link', { name: /explorer les projets/i })
+  ).toBeTruthy()
 })
 
 test('renders the MedAssist project route', () => {
@@ -100,7 +108,7 @@ test('switches between French and English', () => {
   render(<App />)
 
   expect(
-    screen.getByRole('heading', { name: /portfolio de richnel egue/i })
+    screen.getByRole('heading', { name: /je construis à la croisée des/i })
   ).toBeTruthy()
 
   fireEvent.click(screen.getByRole('button', { name: 'Passer en anglais' }))
@@ -109,7 +117,7 @@ test('switches between French and English', () => {
   expect(window.localStorage.getItem('richnel-language')).toBe('en')
 
   expect(
-    screen.getByRole('heading', { name: /richnel egue portfolio/i })
+    screen.getByRole('heading', { name: /i build at the intersection of/i })
   ).toBeTruthy()
 
   expect(screen.getByRole('link', { name: /^about$/i })).toBeTruthy()

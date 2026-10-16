@@ -47,7 +47,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = language
-    document.title = translations[language].home.title
+    document.title = 'Richnel EGUE — Portfolio'
 
     try {
       window.localStorage.setItem(STORAGE_KEY, language)
