@@ -75,3 +75,22 @@ test('renders the not found page for an unknown URL', () => {
 
   window.history.replaceState({}, '', '/')
 })
+
+test('supports light and dark theme preferences', () => {
+  window.localStorage.removeItem('richnel-theme')
+
+  render(<App />)
+
+  expect(document.documentElement.dataset.theme).toBe('light')
+  expect(screen.getByRole('button', { name: /système/i })).toBeTruthy()
+
+  fireEvent.click(screen.getByRole('button', { name: /sombre/i }))
+
+  expect(document.documentElement.dataset.theme).toBe('dark')
+  expect(window.localStorage.getItem('richnel-theme')).toBe('dark')
+
+  fireEvent.click(screen.getByRole('button', { name: /clair/i }))
+
+  expect(document.documentElement.dataset.theme).toBe('light')
+  expect(window.localStorage.getItem('richnel-theme')).toBe('light')
+})
